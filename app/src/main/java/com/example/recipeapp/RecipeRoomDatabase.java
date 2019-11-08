@@ -10,14 +10,14 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Database(entities = {Recipe.class, Ingredient.class, Step.class, RecipeIngredient.class}, version = 1)
-public class RecipeRoomDatabase extends RoomDatabase {
+public abstract class RecipeRoomDatabase extends RoomDatabase {
 
     public abstract RecipeDao recipeDao();
     public abstract IngredientDao ingredientDao();
     public abstract StepDao stepDao();
     public abstract RecipeIngredientDao recipeIngredientDao();
 
-    public static volatile RecipeRoomDatabase INSTANCE;
+    private static volatile RecipeRoomDatabase INSTANCE;
 
     static RecipeRoomDatabase getDatabase(final Context context) {
         if(INSTANCE == null) {
