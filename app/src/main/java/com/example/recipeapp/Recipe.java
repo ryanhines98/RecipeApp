@@ -12,15 +12,20 @@ public class Recipe {
     private String recipeName;
     private int cookTime;
 
-    public Recipe(String name, String image, int time) {
-        this.recipeName = name;
-        this.imageUrl = image;
-        this.cookTime = time;
+    public Recipe(String recipeName, String imageUrl, int cookTime) {
+        this.recipeName = recipeName;
+        this.imageUrl = imageUrl;
+        this.cookTime = cookTime;
     }
 
     public int getId() { return this.id; }
     public String getImageUrl() { return this.imageUrl; }
     public String getRecipeName() { return this.recipeName; }
     public int getCookTime() { return cookTime; }
+
+    public void setId(int id) { this.id = id; }
+    public void setImageUrl(String url) { this.imageUrl = url; }
+    public void setRecipeName(String name) { this.recipeName = name; }
+    public void setCookTime(int time) { this.cookTime = time; }
 
 }

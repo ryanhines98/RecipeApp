@@ -14,4 +14,11 @@ import androidx.room.ForeignKey;
 public class RecipeIngredient {
     private int recipeId;
     private int ingredientId;
+
+    public int getRecipeId() { return this.recipeId; }
+    public int getIngredientId() { return this.ingredientId; }
+
+    public void setRecipeId(int id) { this.recipeId = id; }
+    public void setIngredientId(int id) { this.ingredientId = id; }
+
 }

@@ -9,6 +9,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import java.util.List;
+
 @Database(entities = {Recipe.class, Ingredient.class, Step.class, RecipeIngredient.class}, version = 1)
 public abstract class RecipeRoomDatabase extends RoomDatabase {
 
@@ -55,8 +57,15 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(final Void... params) {
+            rDao.deleteAll();
 
-            //Initial population of data we want into database;
+            Recipe temp = new Recipe("Chicken Parmesan", null, 30);
+            rDao.insert(temp);
+            temp = new Recipe("French Toast", null, 20);
+            rDao.insert(temp);
+            temp = new Recipe("Sunny Side Eggs", null, 10);
+            rDao.insert(temp);
+
             return null;
         }
     }
