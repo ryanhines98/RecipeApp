@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.List;
 
-@Database(entities = {Recipe.class, Ingredient.class, Step.class, RecipeIngredient.class}, version = 1)
+@Database(entities = {Recipe.class, Ingredient.class, Step.class, RecipeIngredient.class}, version = 2)
 public abstract class RecipeRoomDatabase extends RoomDatabase {
 
     public abstract RecipeDao recipeDao();
@@ -26,7 +26,7 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
             synchronized (RecipeRoomDatabase.class) {
                 if(INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            RecipeRoomDatabase.class,"word_database").addCallback(sRoomDatabaseCallback).build();
+                            RecipeRoomDatabase.class,"word_database").addCallback(sRoomDatabaseCallback).fallbackToDestructiveMigration().build();
                 }
             }
         }
@@ -57,13 +57,13 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(final Void... params) {
-            rDao.deleteAll();
+            //rDao.deleteAll();
 
-            Recipe temp = new Recipe("Chicken Parmesan", null, 30);
+            Recipe temp = new Recipe(1,"Chicken Parmesan", null, 30);
             rDao.insert(temp);
-            temp = new Recipe("French Toast", null, 20);
+            temp = new Recipe(2,"French Toast", null, 20);
             rDao.insert(temp);
-            temp = new Recipe("Sunny Side Eggs", null, 10);
+            temp = new Recipe(3,"Sunny Side Eggs", null, 10);
             rDao.insert(temp);
 
             return null;

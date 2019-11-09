@@ -19,5 +19,4 @@ public class RecipeRepository {
 
     LiveData<List<Recipe>> getRecipes() { return this.recipes; }
 
-
 }

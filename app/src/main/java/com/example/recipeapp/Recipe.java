@@ -12,7 +12,8 @@ public class Recipe {
     private String recipeName;
     private int cookTime;
 
-    public Recipe(String recipeName, String imageUrl, int cookTime) {
+    public Recipe(int id, String recipeName, String imageUrl, int cookTime) {
+        this.id = id;
         this.recipeName = recipeName;
         this.imageUrl = imageUrl;
         this.cookTime = cookTime;

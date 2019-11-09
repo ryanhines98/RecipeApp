@@ -13,11 +13,13 @@ import java.util.List;
 public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder> {
 
     class RecipeViewHolder extends RecyclerView.ViewHolder {
-        private final TextView recipeItemView;
+        private final TextView mRecipeNameView;
+        private final TextView mCookTimeView;
 
         public RecipeViewHolder(View itemView) {
             super(itemView);
-            recipeItemView = itemView.findViewById(R.id.textView);
+            mRecipeNameView = itemView.findViewById(R.id.textView1);
+            mCookTimeView = itemView.findViewById(R.id.textView2);
         }
     }
 
@@ -36,9 +38,11 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     public void onBindViewHolder(RecipeViewHolder holder, int position) {
         if(recipes != null) {
             Recipe current = recipes.get(position);
-            holder.recipeItemView.setText(current.getRecipeName());
+            holder.mRecipeNameView.setText(current.getRecipeName());
+            holder.mCookTimeView.setText(Integer.toString(current.getCookTime()));
         } else {
-            holder.recipeItemView.setText("No Recipe");
+            holder.mRecipeNameView.setText("No Recipe");
+            holder.mCookTimeView.setText("0");
         }
     }
 
