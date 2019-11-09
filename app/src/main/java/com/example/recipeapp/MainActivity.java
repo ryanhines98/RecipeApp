@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -21,7 +22,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final RecipeListAdapter adapter = new RecipeListAdapter(this);
+        final RecipeListAdapter adapter = new RecipeListAdapter(this,
+                new RecipeListAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(Recipe item) {
+                        Toast.makeText(getApplicationContext(),
+                                item.getRecipeName() + " clicked!", Toast.LENGTH_LONG).show();
+                    }
+                });
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

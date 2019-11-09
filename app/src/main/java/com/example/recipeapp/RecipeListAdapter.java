@@ -21,12 +21,29 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             mRecipeNameView = itemView.findViewById(R.id.textView1);
             mCookTimeView = itemView.findViewById(R.id.textView2);
         }
+
+        public void bind(final Recipe item, final OnItemClickListener listener) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(item);
+                }
+            });
+        }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Recipe item);
     }
 
     private final LayoutInflater inflater;
     private List<Recipe> recipes;
+    private final OnItemClickListener listener;
 
-    RecipeListAdapter(Context context) { inflater = LayoutInflater.from(context); }
+    RecipeListAdapter(Context context, OnItemClickListener listener) {
+        inflater = LayoutInflater.from(context);
+        this.listener = listener;
+    }
 
     @Override
     public RecipeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -40,6 +57,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             Recipe current = recipes.get(position);
             holder.mRecipeNameView.setText(current.getRecipeName());
             holder.mCookTimeView.setText(Integer.toString(current.getCookTime()));
+            holder.bind(current, listener);
         } else {
             holder.mRecipeNameView.setText("No Recipe");
             holder.mCookTimeView.setText("0");
