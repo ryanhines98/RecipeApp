@@ -60,7 +60,7 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
             //rDao.deleteAll();
 
             rDao.insert(new Recipe(1,"Country House Bed and Breakfast Casserole",
-                    "https://www.allrecipes.com/recipe/24143/country-house-bed-and-breakfast-casserole/photos/885833/", 10));
+                    "https://images.media-allrecipes.com/userphotos/600x600/885833.jpg", 10));
             iDao.insert(new Ingredient(1,"Butter"),
                     new Ingredient(2,"Croutons"));
             riDao.insert(new RecipeIngredient(1,1,"1/4 cup"),
@@ -72,13 +72,13 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
             );
 
             rDao.insert(new Recipe(2,"Spicy grilled cheese sandwich",
-                    "https://www.allrecipes.com/recipe/85901/spicy-grilled-cheese-sandwich/photos/5081856/", 5));
+                    "https://images.media-allrecipes.com/userphotos/600x600/5081856.jpg", 5));
 
             rDao.insert(new Recipe(3,"Parmesan Crusted Tilapia Fillets",
-                    "https://www.allrecipes.com/recipe/228056/parmesan-crusted-tilapia-fillets/photos/1122696/", 20));
+                    "https://images.media-allrecipes.com/userphotos/600x600/1122696.jpg", 20));
 
             rDao.insert(new Recipe(4,"Cheesecake with Cranberry Glaze and Sugared Cranberries",
-                    "https://www.allrecipes.com/recipe/269467/cheesecake-with-cranberry-glaze-and-sugared-cranberries/photos/6179381/",80));
+                    "https://images.media-allrecipes.com/userphotos/600x600/6179381.jpg",80));
 
             return null;
         }

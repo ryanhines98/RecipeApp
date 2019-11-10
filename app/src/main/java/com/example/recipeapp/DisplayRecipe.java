@@ -1,12 +1,13 @@
 package com.example.recipeapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 public class DisplayRecipe extends AppCompatActivity {
 
@@ -21,7 +22,12 @@ public class DisplayRecipe extends AppCompatActivity {
         Intent intent = getIntent();
         mRecipe = intent.getParcelableExtra(RECIPE_KEY);
 
-        TextView mRecipeNameHead = (TextView) findViewById(R.id.recipeNameHeading);
+        String url = mRecipe.getImageUrl();
+
+        TextView mRecipeNameHead = findViewById(R.id.recipe_name_heading);
         mRecipeNameHead.setText(mRecipe.getRecipeName());
+
+        ImageView mImageView = findViewById(R.id.display_recipe_image);
+        Picasso.get().load(url).into(mImageView);
     }
 }

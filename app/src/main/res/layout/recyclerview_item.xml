@@ -6,6 +6,7 @@
     style="@style/recipe_entry">
 
     <ImageView
+        android:id="@+id/recycler_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_crop_original_black_24dp"/>
@@ -16,11 +17,13 @@
         <TextView
             android:id="@+id/textView1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:padding="5dp"/>
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:padding="5dp"/>
     </LinearLayout>
 
 </LinearLayout>
