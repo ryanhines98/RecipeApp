@@ -28,6 +28,8 @@ public class DisplayRecipe extends AppCompatActivity {
         mRecipeNameHead.setText(mRecipe.getRecipeName());
 
         ImageView mImageView = findViewById(R.id.display_recipe_image);
-        Picasso.get().load(url).into(mImageView);
+        Picasso.get()
+                .load(url)
+                .into(mImageView);
     }
 }

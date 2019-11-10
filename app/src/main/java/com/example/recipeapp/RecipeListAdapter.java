@@ -63,7 +63,9 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             holder.mRecipeNameView.setText(current.getRecipeName());
             holder.mCookTimeView.setText(Integer.toString(current.getCookTime()));
             holder.bind(current, listener);
-            Picasso.get().load(current.getImageUrl()).into(holder.mImageView);
+            Picasso.get()
+                    .load(current.getImageUrl())
+                    .into(holder.mImageView);
         } else {
             holder.mRecipeNameView.setText("No Recipe");
             holder.mCookTimeView.setText("0");
