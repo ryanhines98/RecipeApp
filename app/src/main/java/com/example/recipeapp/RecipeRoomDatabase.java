@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.List;
 
-@Database(entities = {Recipe.class, Ingredient.class, Step.class, RecipeIngredient.class}, version = 2)
+@Database(entities = {Recipe.class, Ingredient.class, Step.class, RecipeIngredient.class}, version = 3)
 public abstract class RecipeRoomDatabase extends RoomDatabase {
 
     public abstract RecipeDao recipeDao();
@@ -59,12 +59,26 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
         protected Void doInBackground(final Void... params) {
             //rDao.deleteAll();
 
-            Recipe temp = new Recipe(1,"Chicken Parmesan", null, 30);
-            rDao.insert(temp);
-            temp = new Recipe(2,"French Toast", null, 20);
-            rDao.insert(temp);
-            temp = new Recipe(3,"Sunny Side Eggs", null, 10);
-            rDao.insert(temp);
+            rDao.insert(new Recipe(1,"Country House Bed and Breakfast Casserole",
+                    "https://www.allrecipes.com/recipe/24143/country-house-bed-and-breakfast-casserole/photos/885833/", 10));
+            iDao.insert(new Ingredient(1,"Butter"),
+                    new Ingredient(2,"Croutons"));
+            riDao.insert(new RecipeIngredient(1,1,"1/4 cup"),
+                    new RecipeIngredient(1,2,"1/2 cup"));
+            sDao.insert(
+                    new Step(1,1,"Melt butter in an 8x8 inch glass baking dish or small casserole dish. Add croutons and toss to coat. Sprinkle cheese on top of croutons. In a large bowl, beat together eggs, milk and dry mustard. Pour egg mixture over croutons and cheese. Sprinkle on cubed ham. Cover with plastic wrap, and refrigerate overnight."),
+                    new Step(1,2,"Preheat oven to 375 degrees F (190 degrees C). Let casserole stand at room temperature while oven heats."),
+                    new Step(1,3,"Bake in preheated oven for 40 minutes, until eggs are set. Let sit for 5 minutes before cutting. Can also be frozen and microwaved later.")
+            );
+
+            rDao.insert(new Recipe(2,"Spicy grilled cheese sandwich",
+                    "https://www.allrecipes.com/recipe/85901/spicy-grilled-cheese-sandwich/photos/5081856/", 5));
+
+            rDao.insert(new Recipe(3,"Parmesan Crusted Tilapia Fillets",
+                    "https://www.allrecipes.com/recipe/228056/parmesan-crusted-tilapia-fillets/photos/1122696/", 20));
+
+            rDao.insert(new Recipe(4,"Cheesecake with Cranberry Glaze and Sugared Cranberries",
+                    "https://www.allrecipes.com/recipe/269467/cheesecake-with-cranberry-glaze-and-sugared-cranberries/photos/6179381/",80));
 
             return null;
         }

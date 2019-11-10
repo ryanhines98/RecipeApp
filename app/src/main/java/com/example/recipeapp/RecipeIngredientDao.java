@@ -11,7 +11,7 @@ import java.util.List;
 public interface RecipeIngredientDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(RecipeIngredient recipeIngredient);
+    void insert(RecipeIngredient... recipeIngredients);
 
     @Query("SELECT * FROM recipe_table INNER JOIN recipe_ingredient_table" +
             " ON recipe_table.id=recipe_ingredient_table.recipeId" +
