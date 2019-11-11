@@ -28,10 +28,10 @@ public class DisplayRecipe extends AppCompatActivity {
     private DisplayListAdapter stepAdapter;
 
     private IngredientViewModel mIngredientViewModel;
-    private ListView ingredientListView;
+    private NonScrollListView ingredientListView;
 
     private StepViewModel mStepViewModel;
-    private ListView stepListView;
+    private NonScrollListView stepListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
