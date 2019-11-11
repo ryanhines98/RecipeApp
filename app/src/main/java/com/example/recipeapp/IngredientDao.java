@@ -1,5 +1,6 @@
 package com.example.recipeapp;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -16,6 +17,6 @@ public interface IngredientDao {
     @Query("DELETE FROM ingredient_table")
     void deleteAll();
 
-    @Query("SELECT * FROM ingredient_table ORDER BY ingredientName ASC")
-    List<Ingredient> getAlphabetizedIngredients();
+    @Query("SELECT ingredientName FROM ingredient_table ORDER BY ingredientName ASC")
+    LiveData<List<String>> getAlphabetizedIngredients();
 }

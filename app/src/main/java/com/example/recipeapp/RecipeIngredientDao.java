@@ -1,5 +1,6 @@
 package com.example.recipeapp;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -16,11 +17,11 @@ public interface RecipeIngredientDao {
     @Query("SELECT * FROM recipe_table INNER JOIN recipe_ingredient_table" +
             " ON recipe_table.id=recipe_ingredient_table.recipeId" +
             " WHERE recipe_ingredient_table.ingredientId=:ingredientId")
-    List<Recipe> getRecipesForIngredient(final int ingredientId);
+    LiveData<List<Recipe>> getRecipesForIngredient(final int ingredientId);
 
-    @Query("SELECT * FROM ingredient_table INNER JOIN recipe_ingredient_table" +
+    @Query("SELECT ingredientName FROM ingredient_table INNER JOIN recipe_ingredient_table" +
             " ON ingredient_table.id=recipe_ingredient_table.ingredientId" +
             " WHERE recipe_ingredient_table.recipeId=:recipeId")
-    List<Ingredient> getIngredientsForRecipe(final int recipeId);
+    LiveData<List<String>> getIngredientsForRecipe(final int recipeId);
 
 }

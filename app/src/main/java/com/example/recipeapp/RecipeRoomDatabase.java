@@ -61,8 +61,8 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
 
             rDao.insert(new Recipe(1,"Country House Bed and Breakfast Casserole",
                     "https://images.media-allrecipes.com/userphotos/600x600/885833.jpg", 10));
-            iDao.insert(new Ingredient(1,"Butter"),
-                    new Ingredient(2,"Croutons"));
+            iDao.insert(new Ingredient(1,"Butter"));
+            iDao.insert(new Ingredient(2,"Croutons"));
             riDao.insert(new RecipeIngredient(1,1,"1/4 cup"),
                     new RecipeIngredient(1,2,"1/2 cup"));
             sDao.insert(
