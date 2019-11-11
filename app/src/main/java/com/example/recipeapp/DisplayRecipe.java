@@ -2,13 +2,15 @@ package com.example.recipeapp;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,9 +23,15 @@ public class DisplayRecipe extends AppCompatActivity {
 
     public static final String RECIPE_KEY = "recipe";
     private Recipe mRecipe;
+
+    private DisplayListAdapter ingredientAdapter;
+    private DisplayListAdapter stepAdapter;
+
     private IngredientViewModel mIngredientViewModel;
-    private DisplayListAdapter adapter;
-    private ListView list;
+    private ListView ingredientListView;
+
+    private StepViewModel mStepViewModel;
+    private ListView stepListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,22 +51,63 @@ public class DisplayRecipe extends AppCompatActivity {
                 .load(url)
                 .into(mImageView);
 
-
         //Load Ingredient Names into ListView
-
-        list = findViewById(R.id.listView1);
+        ingredientListView = findViewById(R.id.listView1);
         mIngredientViewModel = new ViewModelProvider(this).get(IngredientViewModel.class);
 
         mIngredientViewModel.getIngredients(mRecipe.getId()).observe(this, new Observer<List<String>>() {
             @Override
             public void onChanged(@Nullable final List<String> items) {
                 if(items != null) {
-                    adapter = new DisplayListAdapter(getApplicationContext(), items);
-                    list.setAdapter(adapter);
+                    ingredientAdapter = new DisplayListAdapter(getApplicationContext(), items);
+                    ingredientListView.setAdapter(ingredientAdapter);
+                    //setListViewHeightBasedOnChildren(ingredientListView);
                 }
-                adapter.notifyDataSetChanged();
+                ingredientAdapter.notifyDataSetChanged();
             }
         });
 
+        //Load Steps into ListView
+        stepListView = findViewById(R.id.listView2);
+        mStepViewModel = new ViewModelProvider(this).get(StepViewModel.class);
+
+        mStepViewModel.getSteps(mRecipe.getId()).observe(this, new Observer<List<Step>>() {
+            @Override
+            public void onChanged(@Nullable final List<Step> items) {
+                if(items != null) {
+                    List<String> steps = new ArrayList<>();
+
+                    for(int i = 0; i < items.size(); i++) {
+                        steps.add( Integer.toString(items.get(i).getStepNumber()) + ") " +
+                                    items.get(i).getStepText());
+                    }
+
+                    stepAdapter = new DisplayListAdapter(getApplicationContext(), steps);
+                    stepListView.setAdapter(stepAdapter);
+                    //setListViewHeightBasedOnChildren(stepListView);
+                }
+                stepAdapter.notifyDataSetChanged();
+            }
+        });
     }
+
+//    public static void setListViewHeightBasedOnChildren(ListView listView) {
+//        ListAdapter listAdapter = listView.getAdapter();
+//        if (listAdapter == null) {
+//            // pre-condition
+//            return;
+//        }
+//
+//        int totalHeight = 0;
+//        for (int i = 0; i < listAdapter.getCount(); i++) {
+//            View listItem = listAdapter.getView(i, null, listView);
+//            listItem.measure(0, 0);
+//            totalHeight += listItem.getMeasuredHeight();
+//        }
+//
+//        ViewGroup.LayoutParams params = listView.getLayoutParams();
+//        params.height = totalHeight
+//                + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+//        listView.setLayoutParams(params);
+//    }
 }

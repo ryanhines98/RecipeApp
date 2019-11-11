@@ -1,6 +1,7 @@
 package com.example.recipeapp;
 
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -16,6 +17,6 @@ public interface StepDao {
 
     @Query("SELECT * FROM step_table WHERE step_table.recipeId=:recipeId" +
             " ORDER BY step_table.stepNumber ASC")
-    List<Step> getSteps(int recipeId);
+    LiveData<List<Step>> getSteps(int recipeId);
 
 }
