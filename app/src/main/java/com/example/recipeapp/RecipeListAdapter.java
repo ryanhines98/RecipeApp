@@ -65,6 +65,8 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             holder.bind(current, listener);
             Picasso.get()
                     .load(current.getImageUrl())
+                    .fit()
+                    .centerCrop()
                     .into(holder.mImageView);
         } else {
             holder.mRecipeNameView.setText("No Recipe");
