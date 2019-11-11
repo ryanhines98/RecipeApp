@@ -68,8 +68,9 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
                     new Ingredient(5, "Milk"),
                     new Ingredient(6, "Dry Mustard"),
                     new Ingredient(7, "Ham, cubed"));
+
             riDao.insert(new RecipeIngredient(1,1,"1/4 cup"),
-                    new RecipeIngredient(1,2,"1/2 cup")),
+                    new RecipeIngredient(1,2,"1/2 cup"),
                     new RecipeIngredient(1, 3, "1/2 cup"),
                     new RecipeIngredient(1, 4, "4"),
                     new RecipeIngredient(1, 5, "1/2 cup"),
@@ -98,7 +99,7 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
                     new Ingredient(13, "Jalapeno Pepper"));
 
             riDao.insert(new RecipeIngredient(2,8,"2 tablespoons"),
-                    new RecipeIngredient(2,9,"4 slices")),
+                    new RecipeIngredient(2,9,"4 slices"),
                     new RecipeIngredient(2, 10, "2 slices"),
                     new RecipeIngredient(2, 11, "1"),
                     new RecipeIngredient(2, 12, "1/4 onion"),
@@ -123,7 +124,7 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
                     new Ingredient(16, "Fresh Parsley"),
                     new Ingredient(17, "Salt"),
                     new Ingredient(18, "Black Pepper"),
-                    new Ingredient(19, "Tilapia Fillets")
+                    new Ingredient(19, "Tilapia Fillets"),
                     new Ingredient(20, "Olive Oil"));
 
             riDao.insert(new RecipeIngredient(3,14,"3/4 cup"),
@@ -162,7 +163,7 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
                     new RecipeIngredient(4, 28, "1 teaspoon"),
                     new RecipeIngredient(4, 29, "1/4 teaspoon"),
                     new RecipeIngredient(4, 30, "2 tablespoons"),
-                    new RecipeIngredient(4, 31, "2 teaspoons"),
+                    new RecipeIngredient(4, 31, "2 teaspoons")
 
             );
 
