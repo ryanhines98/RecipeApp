@@ -67,7 +67,8 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
                     new Ingredient(4, "Eggs"),
                     new Ingredient(5, "Milk"),
                     new Ingredient(6, "Dry Mustard"),
-                    new Ingredient(7, "Ham, cubed"));
+                    new Ingredient(7, "Ham, cubed")
+            );
 
             riDao.insert(new RecipeIngredient(1,1,"1/4 cup"),
                     new RecipeIngredient(1,2,"1/2 cup"),
@@ -75,7 +76,9 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
                     new RecipeIngredient(1, 4, "4"),
                     new RecipeIngredient(1, 5, "1/2 cup"),
                     new RecipeIngredient(1, 6, "1 teaspoon"),
-                    new RecipeIngredient(1, 7, "1 cup"));
+                    new RecipeIngredient(1, 7, "1 cup")
+            );
+
             sDao.insert(
                     new Step(1,1,"Melt butter in an 8x8 inch glass baking dish or small casserole dish. " +
                             "Add croutons and toss to coat. " + "Sprinkle cheese on top of croutons. In a large bowl, beat together eggs, " +
@@ -96,14 +99,16 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
                     new Ingredient(10, "American Cheese"),
                     new Ingredient(11, "Roma (Plum) Tomato"),
                     new Ingredient(12, "Onion"),
-                    new Ingredient(13, "Jalapeno Pepper"));
+                    new Ingredient(13, "Jalapeno Pepper")
+            );
 
             riDao.insert(new RecipeIngredient(2,8,"2 tablespoons"),
                     new RecipeIngredient(2,9,"4 slices"),
                     new RecipeIngredient(2, 10, "2 slices"),
                     new RecipeIngredient(2, 11, "1"),
                     new RecipeIngredient(2, 12, "1/4 onion"),
-                    new RecipeIngredient(2, 13, "1"));
+                    new RecipeIngredient(2, 13, "1")
+            );
 
             sDao.insert(
                     new Step(2, 1,"Heat a large skillet over low heat."),
@@ -125,7 +130,8 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
                     new Ingredient(17, "Salt"),
                     new Ingredient(18, "Black Pepper"),
                     new Ingredient(19, "Tilapia Fillets"),
-                    new Ingredient(20, "Olive Oil"));
+                    new Ingredient(20, "Olive Oil")
+            );
 
             riDao.insert(new RecipeIngredient(3,14,"3/4 cup"),
                     new RecipeIngredient(3,15,"2 teaspoons"),
@@ -134,6 +140,12 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
                     new RecipeIngredient(3, 18, "to taste"),
                     new RecipeIngredient(3, 19, "4"),
                     new RecipeIngredient(3, 20, "8==D")
+            );
+
+            sDao.insert(new Step(3,1,"Preheat oven to 400 degrees F (200 degrees C). Line a baking sheet with aluminum foil."),
+                    new Step(3,2,"Whisk Parmesan cheese, paprika, parsley, salt, and pepper together in a shallow dish. "),
+                    new Step(3,3,"Coat tilapia fillets with olive oil and press into the Parmesan cheese mixture. Arrange coated fillets on the prepared baking sheet."),
+                    new Step(3,4,"Bake in preheated oven until the fish flakes easily with a fork, 10 to 12 minutes.")
             );
 
             //4th recipe
@@ -151,7 +163,8 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
                     new Ingredient(28, "Baking Soda"),
                     new Ingredient(29, "Salt"),
                     new Ingredient(30, "White Sugar"),
-                    new Ingredient(31, "Ground Cinnamon"));
+                    new Ingredient(31, "Ground Cinnamon")
+            );
 
             riDao.insert(new RecipeIngredient(4,21,"1/2 cup"),
                     new RecipeIngredient(4,22,"1/2 cup"),
@@ -165,6 +178,12 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
                     new RecipeIngredient(4, 30, "2 tablespoons"),
                     new RecipeIngredient(4, 31, "2 teaspoons")
 
+            );
+
+            sDao.insert(new Step(4,1,"Preheat oven to 400 degrees F (200 degrees C)."),
+                    new Step(4,2,"Cream together butter, shortening, 1 1/2 cups sugar, the eggs and the vanilla. Blend in the flour, cream of tartar, soda and salt. Shape dough by rounded spoonfuls into balls."),
+                    new Step(4,3,"Mix the 2 tablespoons sugar and the cinnamon. Roll balls of dough in mixture. Place 2 inches apart on ungreased baking sheets."),
+                    new Step(4,4,"Bake 8 to 10 minutes, or until set but not too hard. Remove immediately from baking sheets.")
             );
 
             return null;
