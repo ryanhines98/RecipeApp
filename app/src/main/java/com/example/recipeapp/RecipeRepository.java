@@ -26,13 +26,5 @@ public class RecipeRepository {
         recipes = rDao.getAlphabetizedRecipes();
     }
 
-    public List<Ingredient> getRecipeIngredients(int recipeId) {
-        return riDao.getIngredientsForRecipe(recipeId);
-    }
-
-    public List<Step> getRecipeSteps(int recipeId) {
-        return sDao.getSteps(recipeId);
-    }
-
     LiveData<List<Recipe>> getRecipes() { return this.recipes; }
 }

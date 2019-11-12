@@ -61,7 +61,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         if(recipes != null) {
             Recipe current = recipes.get(position);
             holder.mRecipeNameView.setText(current.getRecipeName());
-            holder.mCookTimeView.setText(Integer.toString(current.getCookTime()));
+            holder.mCookTimeView.setText("Cook Time: " + Integer.toString(current.getCookTime()) + " mins");
             holder.bind(current, listener);
             Picasso.get()
                     .load(current.getImageUrl())

@@ -16,6 +16,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            resValue("string", "PORT_NUMBER", "8085")
+        }
     }
 }
 
@@ -44,4 +48,10 @@ dependencies {
 
     //Testing
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
+
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
 }
