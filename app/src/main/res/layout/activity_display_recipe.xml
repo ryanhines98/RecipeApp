@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme"
     android:orientation="vertical">
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -20,33 +21,38 @@
             <TextView
                 android:id="@+id/recipe_name_heading"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                style="@style/heading_text" />
 
             <ImageView
                 android:id="@+id/display_recipe_image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp" />
+                android:layout_gravity="center_horizontal"
+                android:layout_width="400dp"
+                android:layout_height="400dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ingredients"/>
+                android:text="Ingredients"
+                android:layout_marginLeft="10dp"/>
 
             <com.example.recipeapp.NonScrollListView
                 android:id="@+id/listView1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Steps"/>
+                android:text="Steps"
+                android:layout_marginHorizontal="10dp" />
 
             <com.example.recipeapp.NonScrollListView
                 android:id="@+id/listView2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp" />
 
         </LinearLayout>
     </ScrollView>

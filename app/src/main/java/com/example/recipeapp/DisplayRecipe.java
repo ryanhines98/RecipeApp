@@ -49,6 +49,8 @@ public class DisplayRecipe extends AppCompatActivity {
         ImageView mImageView = findViewById(R.id.display_recipe_image);
         Picasso.get()
                 .load(url)
+                .fit()
+                .centerInside()
                 .into(mImageView);
 
         //Load Ingredient Names into ListView

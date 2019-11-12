@@ -6,19 +6,25 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:background">@color/backgroundColor</item>
     </style>
 
     <style name="recipe_entry">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:background">@android:color/holo_orange_light</item>
-        <item name="android:textAppearance">@android:style/TextAppearance.Large</item>
+       <!-- <item name="android:background">@android:color/holo_orange_light</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Large</item>-->
     </style>
 
     <style name="list_entry">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_marginLeft">8dp</item>
-        <item name="android:background">@android:color/holo_green_light</item>
-        <item name="android:textAppearance">@android:style/TextAppearance.Large</item>
+        <!--<item name="android:background">@android:color/holo_green_light</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Large</item>-->
+    </style>
+
+    <style name="heading_text">
+        <item name="android:textSize">20sp</item>
     </style>
 
 </resources>

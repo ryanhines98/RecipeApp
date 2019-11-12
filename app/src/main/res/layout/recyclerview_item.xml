@@ -7,7 +7,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     card_view:cardCornerRadius="4dp"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+    style="@style/AppTheme"
+    card_view:cardBackgroundColor="@color/colorPrimary">
 <LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -17,14 +19,13 @@
         <ImageView
             android:id="@+id/recycler_image_view"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:src="@drawable/ic_crop_original_black_24dp"/>
+            android:layout_height="160dp" />
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:textSize="20sp"/>
+                style="@style/heading_text"/>
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
