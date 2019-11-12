@@ -8,13 +8,13 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class StepViewModel extends AndroidViewModel {
-    private IngredientRepository repository;
+    private RecipeDetailRepository repository;
 
     private LiveData<List<Step>> steps;
 
     public StepViewModel(Application application) {
         super(application);
-        repository = new IngredientRepository(application);
+        repository = new RecipeDetailRepository(application);
     }
 
     LiveData<List<Step>> getSteps(int recipeId) {

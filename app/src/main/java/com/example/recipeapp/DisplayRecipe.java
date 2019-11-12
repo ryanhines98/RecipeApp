@@ -57,13 +57,18 @@ public class DisplayRecipe extends AppCompatActivity {
         ingredientListView = findViewById(R.id.listView1);
         mIngredientViewModel = new ViewModelProvider(this).get(IngredientViewModel.class);
 
-        mIngredientViewModel.getIngredients(mRecipe.getId()).observe(this, new Observer<List<String>>() {
+        mIngredientViewModel.getIngredientDetails(mRecipe.getId()).observe(this, new Observer<List<IngredientNameAmountDao.IngredientNameAmount>>() {
             @Override
-            public void onChanged(@Nullable final List<String> items) {
+            public void onChanged(@Nullable final List<IngredientNameAmountDao.IngredientNameAmount> items) {
                 if(items != null) {
-                    ingredientAdapter = new DisplayListAdapter(getApplicationContext(), items);
+                    List<String> ingredients = new ArrayList<>();
+
+                    for(int i = 0; i < items.size(); i++) {
+                        ingredients.add(items.get(i).ingredientName + " (" + items.get(i).ingredientAmount + ")");
+                    }
+
+                    ingredientAdapter = new DisplayListAdapter(getApplicationContext(), ingredients);
                     ingredientListView.setAdapter(ingredientAdapter);
-                    //setListViewHeightBasedOnChildren(ingredientListView);
                 }
                 ingredientAdapter.notifyDataSetChanged();
             }
@@ -86,30 +91,9 @@ public class DisplayRecipe extends AppCompatActivity {
 
                     stepAdapter = new DisplayListAdapter(getApplicationContext(), steps);
                     stepListView.setAdapter(stepAdapter);
-                    //setListViewHeightBasedOnChildren(stepListView);
                 }
                 stepAdapter.notifyDataSetChanged();
             }
         });
     }
-
-//    public static void setListViewHeightBasedOnChildren(ListView listView) {
-//        ListAdapter listAdapter = listView.getAdapter();
-//        if (listAdapter == null) {
-//            // pre-condition
-//            return;
-//        }
-//
-//        int totalHeight = 0;
-//        for (int i = 0; i < listAdapter.getCount(); i++) {
-//            View listItem = listAdapter.getView(i, null, listView);
-//            listItem.measure(0, 0);
-//            totalHeight += listItem.getMeasuredHeight();
-//        }
-//
-//        ViewGroup.LayoutParams params = listView.getLayoutParams();
-//        params.height = totalHeight
-//                + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-//        listView.setLayoutParams(params);
-//    }
 }

@@ -8,6 +8,7 @@
         android:id="@+id/listItemView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingVertical="3dp"
         style="@style/list_entry"/>
 
 </LinearLayout>

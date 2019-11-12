@@ -24,4 +24,8 @@ public interface RecipeIngredientDao {
             " WHERE recipe_ingredient_table.recipeId=:recipeId")
     LiveData<List<String>> getIngredientsForRecipe(final int recipeId);
 
+    @Query("SELECT ingredientAmount FROM ingredient_table INNER JOIN recipe_ingredient_table" +
+            " ON ingredient_table.id=recipe_ingredient_table.ingredientId" +
+            " WHERE recipe_ingredient_table.recipeId=:recipeId")
+    LiveData<List<String>> getIngredientAmountsForRecipe(final int recipeId);
 }

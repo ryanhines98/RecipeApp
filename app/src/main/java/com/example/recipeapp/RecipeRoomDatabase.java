@@ -9,8 +9,6 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import java.util.List;
-
 @Database(entities = {Recipe.class, Ingredient.class, Step.class, RecipeIngredient.class}, version = 3)
 public abstract class RecipeRoomDatabase extends RoomDatabase {
 
@@ -18,6 +16,7 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
     public abstract IngredientDao ingredientDao();
     public abstract StepDao stepDao();
     public abstract RecipeIngredientDao recipeIngredientDao();
+    public abstract IngredientNameAmountDao ingredientNameAmountDao();
 
     private static volatile RecipeRoomDatabase INSTANCE;
 
